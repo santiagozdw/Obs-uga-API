@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <title>Kalkulator walut</title>
+</head>
+<body>
+    <h1 class="title">Kalkulator walut</h1>
+    <form class="form" method="POST" enctype=multipart/form-data>
+        <div class="item">
+            <label class="label" for="currency">Wybierz walutę:</label>
+            <select class="select" name="bid">
+                {% for rate in rates %}
+                    <option value="{{rate.bid}}">{{rate.currency}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="item">
+            <label class="label" for="count">Ilość:</label>
+            <input class="input" type="number" name="count" id="count">
+        </div>
+        <button class="submit" type="submit">Przelicz</button>
+    </form>
+
+</body>
+</html>
